@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import React, { useEffect } from 'react'
+
+import Customers from './Components/Customers';
+import FileDropzone from './Components/FileDropzone';
+import axios from 'axios';
+
+const apiUrl = 'http://localhost:3000/customers'
+
+const App = () => {
+  const [customers, setCustomers] = React.useState([])
+
+  useEffect(() => {
+    axios.get(apiUrl)
+    .then(response => {
+      setCustomers(response.data)
+    })
+  }, [])
+
+  const addCustomer = (customer) => {
+    axios.post(apiUrl, customer)
+    .then(response => {
+        setCustomers([...customers, response.data])
+      })
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="header">
+        Outdoor.sy
       </header>
-    </div>
+      <FileDropzone addCustomer={addCustomer} />
+      <Customers customers={customers} />
+    </>
   );
 }
 
