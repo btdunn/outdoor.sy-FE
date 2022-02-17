@@ -9,8 +9,8 @@ React, React Table, React papa-parse
 ## Use/Installation
 
 1. Clone repo
-2. npm install
-3. npm start (use port 3001, or any port besides 3000)
+2. ```npm install```
+3. ```npm start``` (use port 3001, or any port besides 3000)
 
 ## Potential imporvements
 - Implimenting TypeScript, especially if this app were to scale up in complexity and scope.
