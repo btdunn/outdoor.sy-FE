@@ -12,3 +12,9 @@ React, React Table, React papa-parse
 2. npm install
 3. npm start (use port 3001, or any port besides 3000)
 
+## Potential imporvements
+- Implimenting TypeScript, especially if this app were to scale up in complexity and scope.
+- Improved styling, likely using MUI or a comparable library.
+- Search functionality, and/or table pagination/page skip functionality (all things i've implimented in the past).
+- Error handling.
+- Testing, perhaps with Cypress.
